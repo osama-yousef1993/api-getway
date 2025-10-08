@@ -1,0 +1,80 @@
+// layout/_grid.scss
+// Grid system and layout utilities
+
+.section {
+  margin-bottom: $spacing-3xl;
+  
+  &__title {
+    text-align: center;
+    color: $primary-color;
+    margin-bottom: $spacing-lg;
+    position: relative;
+    
+    // Decorative underline
+    &::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, $primary-color, $accent-color);
+      margin: $spacing-md auto 0;
+      border-radius: $border-radius-full;
+    }
+  }
+  
+  &__description {
+    text-align: center;
+    color: $gray;
+    max-width: 600px;
+    margin: 0 auto $spacing-xl;
+    font-size: $font-size-large;
+    line-height: $line-height-loose;
+  }
+}
+
+// Grid utilities
+.grid {
+  display: grid;
+  gap: $spacing-lg;
+  
+  &--2 {
+    grid-template-columns: repeat(2, 1fr);
+    
+    @include respond-to(mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  &--3 {
+    grid-template-columns: repeat(3, 1fr);
+    
+    @include respond-to(mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  &--4 {
+    grid-template-columns: repeat(4, 1fr);
+    
+    @include respond-to(mobile) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+// Flex utilities
+.flex {
+  @include flex-center;
+  
+  &--between {
+    @include flex-between;
+  }
+  
+  &--column {
+    @include flex-column;
+  }
+  
+  &--wrap {
+    @include flex-wrap;
+  }
+}

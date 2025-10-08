@@ -1,0 +1,383 @@
+// main.scss
+// Main SASS file that imports all partials
+
+// Import variables first (they need to be available to other partials)
+@import 'variables';
+
+// Import mixins (they need variables)
+@import 'mixins';
+
+// Import base styles
+@import 'base';
+
+// Import layout partials
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/grid';
+
+// Import component partials
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/navigation';
+
+// Page-specific styles
+.app {
+  min-height: 100vh;
+  @include flex-column;
+}
+
+.main {
+  flex: 1;
+  padding: $spacing-xl 0;
+}
+
+// Variables Demo Sections
+.variables-demo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $spacing-xl;
+  margin-top: $spacing-lg;
+  
+  &__colors,
+  &__typography {
+    background-color: $white;
+    padding: $spacing-lg;
+    @include border-radius($border-radius-lg);
+    @include card-shadow(1);
+    
+    h3 {
+      color: $primary-color;
+      margin-bottom: $spacing-lg;
+      text-align: center;
+    }
+  }
+}
+
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: $spacing-md;
+}
+
+.color-box {
+  @include flex-center;
+  height: 100px;
+  @include border-radius($border-radius-md);
+  color: $white;
+  font-weight: $font-weight-bold;
+  text-align: center;
+  transition: $transition-medium;
+  position: relative;
+  overflow: hidden;
+  
+  &:hover {
+    transform: scale(1.05);
+    @include card-shadow(2);
+  }
+  
+  &__label {
+    font-size: $font-size-small;
+    background-color: rgba($black, 0.3);
+    padding: $spacing-xs $spacing-sm;
+    @include border-radius($border-radius-sm);
+  }
+  
+  // Color variations
+  &--primary {
+    background-color: $primary-color;
+  }
+  
+  &--secondary {
+    background-color: $secondary-color;
+  }
+  
+  &--accent {
+    background-color: $accent-color;
+  }
+  
+  &--success {
+    background-color: $success-color;
+  }
+}
+
+// Typography examples
+.text-small {
+  font-size: $font-size-small;
+  color: $gray;
+}
+
+.text-medium {
+  font-size: $font-size-medium;
+  color: $dark-gray;
+}
+
+.text-large {
+  font-size: $font-size-large;
+  color: $black;
+  font-weight: $font-weight-medium;
+}
+
+.text-hero {
+  font-size: $font-size-hero;
+  font-weight: $font-weight-bold;
+  @include text-gradient($primary-color, $accent-color);
+  text-align: center;
+}
+
+// Nesting Demo
+.nesting-demo {
+  @include flex-center;
+  margin-top: $spacing-lg;
+}
+
+// Mixins Demo
+.mixins-demo {
+  h3 {
+    color: $primary-color;
+    margin: $spacing-xl 0 $spacing-lg 0;
+    text-align: center;
+  }
+}
+
+.button-showcase {
+  @include flex-center;
+  @include flex-wrap;
+  gap: $spacing-md;
+  margin-bottom: $spacing-xl;
+}
+
+.flex-examples {
+  @include flex-column;
+  gap: $spacing-lg;
+  margin-bottom: $spacing-xl;
+}
+
+.flex-box {
+  background-color: $white;
+  padding: $spacing-lg;
+  @include border-radius($border-radius-md);
+  @include card-shadow(1);
+  min-height: 100px;
+  
+  &--center {
+    @include flex-center;
+    background: linear-gradient(135deg, $primary-color, lighten($primary-color, 20%));
+    color: $white;
+  }
+  
+  &--between {
+    @include flex-between;
+    background: linear-gradient(135deg, $secondary-color, lighten($secondary-color, 20%));
+    color: $white;
+  }
+  
+  &--column {
+    @include flex-column;
+    @include flex-center;
+    background: linear-gradient(135deg, $accent-color, lighten($accent-color, 20%));
+    color: $white;
+    gap: $spacing-sm;
+  }
+}
+
+.shadow-examples {
+  @include flex-center;
+  @include flex-wrap;
+  gap: $spacing-lg;
+  margin-bottom: $spacing-xl;
+}
+
+.shadow-box {
+  @include flex-center;
+  width: 150px;
+  height: 100px;
+  background-color: $white;
+  @include border-radius($border-radius-md);
+  font-weight: $font-weight-bold;
+  color: $dark-gray;
+  
+  &--small {
+    @include card-shadow(1);
+  }
+  
+  &--medium {
+    @include card-shadow(2);
+  }
+  
+  &--large {
+    @include card-shadow(3);
+  }
+}
+
+// Partials Demo
+.partials-demo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: $spacing-xl;
+  margin-top: $spacing-lg;
+}
+
+.file-structure,
+.import-examples {
+  background-color: $white;
+  padding: $spacing-lg;
+  @include border-radius($border-radius-lg);
+  @include card-shadow(1);
+  
+  h3 {
+    color: $primary-color;
+    margin-bottom: $spacing-lg;
+    text-align: center;
+  }
+}
+
+.file-tree {
+  font-family: $font-stack-monospace;
+  font-size: $font-size-small;
+  
+  &__item {
+    padding: $spacing-xs 0;
+    
+    &--folder {
+      font-weight: $font-weight-bold;
+      color: $primary-color;
+    }
+  }
+  
+  &__children {
+    margin-left: $spacing-lg;
+    border-left: 1px solid lighten($gray, 20%);
+    padding-left: $spacing-md;
+  }
+}
+
+.code-block {
+  background-color: $dark-gray;
+  @include border-radius($border-radius-md);
+  overflow-x: auto;
+  
+  pre {
+    margin: 0;
+    
+    code {
+      color: $light-gray;
+      background: none;
+    }
+  }
+}
+
+// Advanced Features Demo
+.advanced-demo {
+  @include flex-column;
+  gap: $spacing-xl;
+}
+
+.functions-demo,
+.operations-demo,
+.loops-demo {
+  h3 {
+    color: $primary-color;
+    text-align: center;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.function-examples {
+  @include flex-center;
+  @include flex-wrap;
+  gap: $spacing-lg;
+}
+
+.function-box {
+  @include flex-center;
+  width: 200px;
+  height: 80px;
+  @include border-radius($border-radius-md);
+  color: $white;
+  font-weight: $font-weight-bold;
+  text-align: center;
+  
+  &--lighten {
+    background-color: lighten($primary-color, 20%);
+  }
+  
+  &--darken {
+    background-color: darken($primary-color, 20%);
+  }
+  
+  &--adjust-hue {
+    background-color: adjust-hue($primary-color, 60deg);
+  }
+}
+
+.math-examples {
+  @include flex-center;
+  @include flex-wrap;
+  gap: $spacing-md;
+}
+
+.math-box {
+  @include flex-center;
+  height: 80px;
+  background-color: $secondary-color;
+  color: $white;
+  @include border-radius($border-radius-md);
+  font-weight: $font-weight-bold;
+}
+
+.loop-examples {
+  @include flex-center;
+  @include flex-wrap;
+  gap: $spacing-md;
+}
+
+// Generate grid items using SASS loop
+@for $i from 1 through 5 {
+  .grid-item--#{$i} {
+    background-color: lighten($primary-color, $i * 5%);
+    
+    @if $i % 2 == 0 {
+      background-color: lighten($accent-color, $i * 3%);
+    }
+  }
+}
+
+.grid-item {
+  @include flex-center;
+  width: 80px;
+  height: 80px;
+  color: $white;
+  font-weight: $font-weight-bold;
+  @include border-radius($border-radius-md);
+  font-size: $font-size-large;
+}
+
+// Keyframes for animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}

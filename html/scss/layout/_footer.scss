@@ -1,0 +1,18 @@
+// layout/_footer.scss
+// Footer layout styles
+
+.footer {
+  background-color: $dark-gray;
+  color: $light-gray;
+  text-align: center;
+  padding: $spacing-xl 0;
+  margin-top: $spacing-3xl;
+  
+  .container {
+    p {
+      margin: 0;
+      font-size: $font-size-small;
+      opacity: 0.8;
+    }
+  }
+}

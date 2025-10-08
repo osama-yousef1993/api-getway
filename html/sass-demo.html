@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SASS/SCSS Features Demo</title>
+    <link rel="stylesheet" href="sass-demo.css">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <div class="container">
+                <div class="header__brand">
+                    <h1>SASS/SCSS Demo</h1>
+                    <p>Showcasing Variables, Nesting, Mixins & Partials</p>
+                </div>
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="#variables" class="nav__link">Variables</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#nesting" class="nav__link">Nesting</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#mixins" class="nav__link">Mixins</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#partials" class="nav__link">Partials</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="container">
+                <section id="variables" class="section">
+                    <h2 class="section__title">SASS Variables</h2>
+                    <p class="section__description">
+                        SASS variables use the <code>$</code> prefix and provide more functionality than CSS variables.
+                    </p>
+                    
+                    <div class="variables-demo">
+                        <div class="variables-demo__colors">
+                            <h3>Color Variables</h3>
+                            <div class="color-grid">
+                                <div class="color-box color-box--primary">
+                                    <span class="color-box__label">$primary-color</span>
+                                </div>
+                                <div class="color-box color-box--secondary">
+                                    <span class="color-box__label">$secondary-color</span>
+                                </div>
+                                <div class="color-box color-box--accent">
+                                    <span class="color-box__label">$accent-color</span>
+                                </div>
+                                <div class="color-box color-box--success">
+                                    <span class="color-box__label">$success-color</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="variables-demo__typography">
+                            <h3>Typography Variables</h3>
+                            <p class="text-small">Small text using $font-size-small</p>
+                            <p class="text-medium">Medium text using $font-size-medium</p>
+                            <p class="text-large">Large text using $font-size-large</p>
+                            <p class="text-hero">Hero text using $font-size-hero</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="nesting" class="section">
+                    <h2 class="section__title">CSS Nesting</h2>
+                    <p class="section__description">
+                        SASS allows you to nest CSS rules inside other rules, making your code more organized and easier to read.
+                    </p>
+                    
+                    <div class="nesting-demo">
+                        <div class="card">
+                            <div class="card__header">
+                                <h3 class="card__title">Nested Card Component</h3>
+                                <div class="card__actions">
+                                    <button class="btn btn--small btn--primary">Edit</button>
+                                    <button class="btn btn--small btn--secondary">Delete</button>
+                                </div>
+                            </div>
+                            <div class="card__body">
+                                <p>This card demonstrates nested SASS structures. Hover over elements to see the nested effects.</p>
+                                <ul class="card__list">
+                                    <li class="card__list-item">
+                                        <span class="card__list-icon">✓</span>
+                                        Organized code structure
+                                    </li>
+                                    <li class="card__list-item">
+                                        <span class="card__list-icon">✓</span>
+                                        Parent selector references (&amp;)
+                                    </li>
+                                    <li class="card__list-item">
+                                        <span class="card__list-icon">✓</span>
+                                        Nested pseudo-classes and states
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card__footer">
+                                <a href="#" class="card__link">Learn more about nesting →</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="mixins" class="section">
+                    <h2 class="section__title">SASS Mixins</h2>
+                    <p class="section__description">
+                        Mixins allow you to define reusable groups of CSS declarations that you can include throughout your stylesheet.
+                    </p>
+                    
+                    <div class="mixins-demo">
+                        <h3>Button Mixin Examples</h3>
+                        <div class="button-showcase">
+                            <button class="btn-mixin btn-mixin--primary">Primary Button</button>
+                            <button class="btn-mixin btn-mixin--secondary">Secondary Button</button>
+                            <button class="btn-mixin btn-mixin--success btn-mixin--large">Large Success</button>
+                            <button class="btn-mixin btn-mixin--warning btn-mixin--small">Small Warning</button>
+                        </div>
+
+                        <h3>Flex Mixin Examples</h3>
+                        <div class="flex-examples">
+                            <div class="flex-box flex-box--center">
+                                <p>flex-center mixin</p>
+                            </div>
+                            <div class="flex-box flex-box--between">
+                                <span>Left</span>
+                                <span>Right</span>
+                            </div>
+                            <div class="flex-box flex-box--column">
+                                <div>Item 1</div>
+                                <div>Item 2</div>
+                                <div>Item 3</div>
+                            </div>
+                        </div>
+
+                        <h3>Shadow & Border Radius Mixins</h3>
+                        <div class="shadow-examples">
+                            <div class="shadow-box shadow-box--small">Small Shadow</div>
+                            <div class="shadow-box shadow-box--medium">Medium Shadow</div>
+                            <div class="shadow-box shadow-box--large">Large Shadow</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="partials" class="section">
+                    <h2 class="section__title">SASS Partials</h2>
+                    <p class="section__description">
+                        Partials are SASS files that begin with an underscore and contain CSS snippets to be imported into other SASS files.
+                    </p>
+                    
+                    <div class="partials-demo">
+                        <div class="file-structure">
+                            <h3>File Structure Example</h3>
+                            <div class="file-tree">
+                                <div class="file-tree__item file-tree__item--folder">
+                                    📁 scss/
+                                    <div class="file-tree__children">
+                                        <div class="file-tree__item">📄 main.scss</div>
+                                        <div class="file-tree__item">📄 _variables.scss</div>
+                                        <div class="file-tree__item">📄 _mixins.scss</div>
+                                        <div class="file-tree__item">📄 _base.scss</div>
+                                        <div class="file-tree__item file-tree__item--folder">
+                                            📁 components/
+                                            <div class="file-tree__children">
+                                                <div class="file-tree__item">📄 _buttons.scss</div>
+                                                <div class="file-tree__item">📄 _cards.scss</div>
+                                                <div class="file-tree__item">📄 _navigation.scss</div>
+                                            </div>
+                                        </div>
+                                        <div class="file-tree__item file-tree__item--folder">
+                                            📁 layout/
+                                            <div class="file-tree__children">
+                                                <div class="file-tree__item">📄 _header.scss</div>
+                                                <div class="file-tree__item">📄 _footer.scss</div>
+                                                <div class="file-tree__item">📄 _grid.scss</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="import-examples">
+                            <h3>Import Structure</h3>
+                            <div class="code-block">
+                                <pre><code>// main.scss
+@import 'variables';
+@import 'mixins';
+@import 'base';
+
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/navigation';
+
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/grid';</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section__title">Advanced SASS Features</h2>
+                    
+                    <div class="advanced-demo">
+                        <div class="functions-demo">
+                            <h3>SASS Functions</h3>
+                            <div class="function-examples">
+                                <div class="function-box function-box--lighten">
+                                    <span>lighten($primary, 20%)</span>
+                                </div>
+                                <div class="function-box function-box--darken">
+                                    <span>darken($primary, 20%)</span>
+                                </div>
+                                <div class="function-box function-box--adjust-hue">
+                                    <span>adjust-hue($primary, 60deg)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="operations-demo">
+                            <h3>Math Operations</h3>
+                            <div class="math-examples">
+                                <div class="math-box" style="width: calc(100% / 4 - 15px);">25% - margin</div>
+                                <div class="math-box" style="width: calc(100% / 3 - 20px);">33.33% - margin</div>
+                                <div class="math-box" style="width: calc(100% / 2 - 25px);">50% - margin</div>
+                            </div>
+                        </div>
+
+                        <div class="loops-demo">
+                            <h3>Loops & Conditionals</h3>
+                            <div class="loop-examples">
+                                <div class="grid-item grid-item--1">1</div>
+                                <div class="grid-item grid-item--2">2</div>
+                                <div class="grid-item grid-item--3">3</div>
+                                <div class="grid-item grid-item--4">4</div>
+                                <div class="grid-item grid-item--5">5</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2025 SASS/SCSS Demo. Compiled from modular SCSS files.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

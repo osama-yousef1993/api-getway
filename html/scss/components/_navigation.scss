@@ -1,0 +1,76 @@
+// components/_navigation.scss
+// Navigation component with nested structure
+
+.nav {
+  // Navigation list
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    @include flex-center;
+    gap: $spacing-lg;
+    
+    @include respond-to(mobile) {
+      flex-direction: column;
+      gap: $spacing-sm;
+    }
+  }
+  
+  // Navigation items
+  &__item {
+    position: relative;
+    
+    // Hover effect for items
+    &:hover {
+      .nav__link {
+        color: $primary-color;
+        
+        // Underline effect
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+  
+  // Navigation links
+  &__link {
+    display: block;
+    padding: $spacing-sm $spacing-md;
+    color: $dark-gray;
+    text-decoration: none;
+    font-weight: $font-weight-medium;
+    transition: $transition-medium;
+    position: relative;
+    
+    // Underline animation using pseudo-element
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background-color: $primary-color;
+      transition: $transition-medium;
+      transform: translateX(-50%);
+    }
+    
+    // Active state
+    &--active,
+    &.active {
+      color: $primary-color;
+      
+      &::after {
+        width: 100%;
+      }
+    }
+    
+    // Focus state for accessibility
+    &:focus {
+      outline: 2px solid $primary-color;
+      outline-offset: 2px;
+      border-radius: $border-radius-sm;
+    }
+  }
+}

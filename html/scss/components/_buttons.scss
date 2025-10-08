@@ -1,0 +1,78 @@
+// components/_buttons.scss
+// Button component styles using mixins
+
+// Base button class
+.btn {
+  @include button-style($primary-color);
+  
+  // Size variations
+  &--small {
+    @include button-style($primary-color, $white, small);
+  }
+  
+  &--large {
+    @include button-style($primary-color, $white, large);
+  }
+  
+  // Color variations
+  &--primary {
+    @include button-style($primary-color);
+  }
+  
+  &--secondary {
+    @include button-style($secondary-color);
+  }
+  
+  &--success {
+    @include button-style($success-color);
+  }
+  
+  &--warning {
+    @include button-style($warning-color, $black);
+  }
+  
+  &--danger {
+    @include button-style($danger-color);
+  }
+  
+  // Outline button
+  &--outline {
+    background-color: transparent;
+    color: $primary-color;
+    border: 2px solid $primary-color;
+    
+    &:hover {
+      background-color: $primary-color;
+      color: $white;
+    }
+  }
+}
+
+// Mixin-based button classes for demo
+.btn-mixin {
+  @include button-style($gray);
+  
+  &--primary {
+    @include button-style($primary-color);
+  }
+  
+  &--secondary {
+    @include button-style($secondary-color);
+  }
+  
+  &--success {
+    @include button-style($success-color);
+    
+    &.btn-mixin--large {
+      @include button-style($success-color, $white, large);
+    }
+  }
+  
+  &--warning {
+    @include button-style($warning-color, $black);
+    
+    &.btn-mixin--small {
+      @include button-style($warning-color, $black, small);
+    }
+  }
+}

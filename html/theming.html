@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Variables for Theming</title>
+    <link rel="stylesheet" href="theming.css">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <div class="container">
+                <div class="nav-brand">
+                    <h1>🎨 Theme Demo</h1>
+                </div>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="#home" class="nav-link">Home</a></li>
+                        <li><a href="#features" class="nav-link">Features</a></li>
+                        <li><a href="#about" class="nav-link">About</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="theme-controls">
+                    <button class="theme-btn" onclick="setTheme('light')" title="Light Theme">☀️</button>
+                    <button class="theme-btn" onclick="setTheme('dark')" title="Dark Theme">🌙</button>
+                    <button class="theme-btn" onclick="setTheme('blue')" title="Blue Theme">💙</button>
+                    <button class="theme-btn" onclick="setTheme('green')" title="Green Theme">💚</button>
+                    <button class="theme-btn" onclick="setTheme('purple')" title="Purple Theme">💜</button>
+                    <button class="theme-btn" onclick="setTheme('high-contrast')" title="High Contrast">⚫</button>
+                </div>
+            </div>
+        </header>
+        
+        <main class="main">
+            <div class="container">
+                <section class="hero">
+                    <h2>CSS Variables Theming System</h2>
+                    <p>Experience seamless theme switching using CSS custom properties. Choose from multiple themes using the buttons in the header.</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary">Get Started</button>
+                        <button class="btn btn-secondary">Learn More</button>
+                    </div>
+                </section>
+                
+                <section class="features">
+                    <h2>Theme Features</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🎯</div>
+                            <h3>Dynamic Switching</h3>
+                            <p>Switch themes instantly without page refresh using CSS variables.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🚀</div>
+                            <h3>Performance</h3>
+                            <p>Efficient theme switching with minimal performance impact.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">♿</div>
+                            <h3>Accessibility</h3>
+                            <p>Includes high contrast theme for better accessibility.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🎨</div>
+                            <h3>Customizable</h3>
+                            <p>Easy to extend with new themes and color schemes.</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="components-showcase">
+                    <h2>Component Showcase</h2>
+                    
+                    <div class="showcase-section">
+                        <h3>Buttons</h3>
+                        <div class="button-group">
+                            <button class="btn btn-primary">Primary</button>
+                            <button class="btn btn-secondary">Secondary</button>
+                            <button class="btn btn-success">Success</button>
+                            <button class="btn btn-warning">Warning</button>
+                            <button class="btn btn-danger">Danger</button>
+                            <button class="btn btn-outline">Outline</button>
+                        </div>
+                    </div>
+                    
+                    <div class="showcase-section">
+                        <h3>Cards</h3>
+                        <div class="cards-grid">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>Default Card</h4>
+                                </div>
+                                <div class="card-body">
+                                    <p>This card adapts to the current theme automatically.</p>
+                                </div>
+                            </div>
+                            <div class="card card-elevated">
+                                <div class="card-header">
+                                    <h4>Elevated Card</h4>
+                                </div>
+                                <div class="card-body">
+                                    <p>Enhanced shadow and styling for important content.</p>
+                                </div>
+                            </div>
+                            <div class="card card-bordered">
+                                <div class="card-header">
+                                    <h4>Bordered Card</h4>
+                                </div>
+                                <div class="card-body">
+                                    <p>Distinct border styling that respects theme colors.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="showcase-section">
+                        <h3>Form Elements</h3>
+                        <form class="demo-form">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" placeholder="Enter your name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" placeholder="Enter your email">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" rows="4" placeholder="Enter your message"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="newsletter">
+                                    <span class="checkmark"></span>
+                                    Subscribe to newsletter
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                    
+                    <div class="showcase-section">
+                        <h3>Interactive Elements</h3>
+                        <div class="interactive-demo">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 70%"></div>
+                            </div>
+                            <div class="status-indicators">
+                                <span class="status status-success">Online</span>
+                                <span class="status status-warning">Warning</span>
+                                <span class="status status-danger">Offline</span>
+                            </div>
+                            <div class="rating">
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                                <span class="star">☆</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="theme-info">
+                    <h2>Current Theme Information</h2>
+                    <div class="theme-details">
+                        <div class="color-palette">
+                            <h3>Color Palette</h3>
+                            <div class="color-swatches">
+                                <div class="swatch swatch-bg" title="Background"></div>
+                                <div class="swatch swatch-surface" title="Surface"></div>
+                                <div class="swatch swatch-primary" title="Primary"></div>
+                                <div class="swatch swatch-secondary" title="Secondary"></div>
+                                <div class="swatch swatch-accent" title="Accent"></div>
+                                <div class="swatch swatch-text" title="Text"></div>
+                            </div>
+                        </div>
+                        <div class="theme-variables" id="theme-variables">
+                            <h3>CSS Variables</h3>
+                            <div class="variables-list">
+                                <!-- Variables will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2025 Theme Demo. Built with CSS Variables for dynamic theming.</p>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="theming.js"></script>
+</body>
+</html>
