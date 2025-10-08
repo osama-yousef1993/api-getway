@@ -1,0 +1,200 @@
+// _mixins.scss
+// Reusable SASS Mixins
+
+// Flexbox Mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+// Button Mixin with parameters
+@mixin button-style($bg-color, $text-color: $white, $size: medium) {
+  display: inline-block;
+  padding: if($size == small, $spacing-sm $spacing-md, if($size == large, $spacing-lg $spacing-xl, $spacing-md $spacing-lg));
+  background-color: $bg-color;
+  color: $text-color;
+  border: none;
+  border-radius: $border-radius-md;
+  font-family: $font-stack-primary;
+  font-size: if($size == small, $font-size-small, if($size == large, $font-size-large, $font-size-medium));
+  font-weight: $font-weight-medium;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: $transition-medium;
+  
+  &:hover {
+    background-color: darken($bg-color, 10%);
+    transform: translateY(-2px);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    
+    &:hover {
+      background-color: $bg-color;
+      transform: none;
+    }
+  }
+}
+
+// Card Shadow Mixins
+@mixin card-shadow($level: 1) {
+  @if $level == 1 {
+    box-shadow: $shadow-sm;
+  } @else if $level == 2 {
+    box-shadow: $shadow-md;
+  } @else if $level == 3 {
+    box-shadow: $shadow-lg;
+  } @else {
+    box-shadow: $shadow-xl;
+  }
+}
+
+@mixin card-hover-effect {
+  transition: $transition-medium;
+  
+  &:hover {
+    transform: translateY(-5px);
+    @include card-shadow(3);
+  }
+}
+
+// Responsive Breakpoint Mixins
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (max-width: #{$breakpoint-md - 1px}) {
+      @content;
+    }
+  }
+  
+  @if $breakpoint == tablet {
+    @media (min-width: $breakpoint-md) and (max-width: #{$breakpoint-lg - 1px}) {
+      @content;
+    }
+  }
+  
+  @if $breakpoint == desktop {
+    @media (min-width: $breakpoint-lg) {
+      @content;
+    }
+  }
+  
+  @if $breakpoint == large-desktop {
+    @media (min-width: $breakpoint-xl) {
+      @content;
+    }
+  }
+}
+
+// Typography Mixins
+@mixin heading($level) {
+  font-family: $font-stack-primary;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  margin-bottom: $spacing-md;
+  
+  @if $level == 1 {
+    font-size: $font-size-hero;
+  } @else if $level == 2 {
+    font-size: $font-size-2xl;
+  } @else if $level == 3 {
+    font-size: $font-size-xl;
+  } @else if $level == 4 {
+    font-size: $font-size-large;
+  } @else {
+    font-size: $font-size-medium;
+  }
+}
+
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin text-gradient($color1, $color2) {
+  background: linear-gradient(45deg, $color1, $color2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Animation Mixins
+@mixin fade-in($duration: $transition-medium) {
+  animation: fadeIn $duration ease-in-out;
+}
+
+@mixin slide-in-up($duration: $transition-medium) {
+  animation: slideInUp $duration ease-out;
+}
+
+@mixin pulse($duration: 2s) {
+  animation: pulse $duration ease-in-out infinite;
+}
+
+// Utility Mixins
+@mixin visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  
+  &::before {
+    content: "";
+    display: block;
+    padding-top: ($height / $width) * 100%;
+  }
+  
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// Border Radius Mixin
+@mixin border-radius($radius: $border-radius-md) {
+  border-radius: $radius;
+}
