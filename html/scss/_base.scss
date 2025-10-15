@@ -1,0 +1,131 @@
+// _base.scss
+// Base styles and resets
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-stack-primary;
+  font-size: $font-size-medium;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-normal;
+  color: $black;
+  background-color: $light-gray;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-stack-primary;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  margin-bottom: $spacing-md;
+}
+
+h1 { @include heading(1); }
+h2 { @include heading(2); }
+h3 { @include heading(3); }
+h4 { @include heading(4); }
+h5, h6 { @include heading(5); }
+
+// Paragraphs
+p {
+  margin-bottom: $spacing-md;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Links
+a {
+  color: $primary-color;
+  text-decoration: none;
+  transition: $transition-fast;
+  
+  &:hover {
+    color: darken($primary-color, 15%);
+    text-decoration: underline;
+  }
+  
+  &:focus {
+    outline: 2px solid $primary-color;
+    outline-offset: 2px;
+  }
+}
+
+// Lists
+ul, ol {
+  margin-bottom: $spacing-md;
+  padding-left: $spacing-lg;
+}
+
+li {
+  margin-bottom: $spacing-xs;
+}
+
+// Code elements
+code {
+  font-family: $font-stack-monospace;
+  font-size: 0.9em;
+  background-color: lighten($gray, 35%);
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-sm;
+  color: $danger-color;
+}
+
+pre {
+  font-family: $font-stack-monospace;
+  background-color: $dark-gray;
+  color: $white;
+  padding: $spacing-lg;
+  border-radius: $border-radius-md;
+  overflow-x: auto;
+  margin-bottom: $spacing-md;
+  
+  code {
+    background: none;
+    padding: 0;
+    color: inherit;
+  }
+}
+
+// Images
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// Buttons
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+// Form elements
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+// Container class
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $spacing-lg;
+  
+  @include respond-to(mobile) {
+    padding: 0 $spacing-md;
+  }
+}

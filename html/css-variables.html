@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Variables & Custom Properties</title>
+    <link rel="stylesheet" href="css-variables.css">
+</head>
+<body>
+    <div class="container">
+        <h1>CSS Variables & Custom Properties</h1>
+        
+        <section class="intro-section">
+            <h2>What are CSS Variables?</h2>
+            <p>CSS Variables (Custom Properties) allow you to store and reuse values throughout your stylesheet. They start with <code>--</code> and are accessed using <code>var()</code>.</p>
+        </section>
+        
+        <section class="basic-variables">
+            <h2>Basic CSS Variables Usage</h2>
+            <div class="variable-examples">
+                <div class="color-example">
+                    <h3>Color Variables</h3>
+                    <div class="color-boxes">
+                        <div class="box primary-color">Primary</div>
+                        <div class="box secondary-color">Secondary</div>
+                        <div class="box accent-color">Accent</div>
+                    </div>
+                </div>
+                
+                <div class="spacing-example">
+                    <h3>Spacing Variables</h3>
+                    <div class="spacing-demo">
+                        <div class="item small-spacing">Small Spacing</div>
+                        <div class="item medium-spacing">Medium Spacing</div>
+                        <div class="item large-spacing">Large Spacing</div>
+                    </div>
+                </div>
+                
+                <div class="typography-example">
+                    <h3>Typography Variables</h3>
+                    <div class="text-samples">
+                        <p class="text-small">Small Text</p>
+                        <p class="text-medium">Medium Text</p>
+                        <p class="text-large">Large Text</p>
+                        <p class="text-hero">Hero Text</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="advanced-usage">
+            <h2>Advanced Variable Usage</h2>
+            
+            <div class="calc-examples">
+                <h3>Using calc() with Variables</h3>
+                <div class="calc-demo">
+                    <div class="calc-box calc-1">Box 1</div>
+                    <div class="calc-box calc-2">Box 2</div>
+                    <div class="calc-box calc-3">Box 3</div>
+                </div>
+            </div>
+            
+            <div class="fallback-examples">
+                <h3>Fallback Values</h3>
+                <div class="fallback-demo">
+                    <div class="fallback-box fallback-1">With Fallback</div>
+                    <div class="fallback-box fallback-2">Custom Value</div>
+                </div>
+            </div>
+            
+            <div class="scoped-variables">
+                <h3>Scoped Variables</h3>
+                <div class="parent-scope">
+                    <p>Parent Scope (Blue Theme)</p>
+                    <div class="child-scope">
+                        <p>Child Scope (Red Theme)</p>
+                        <div class="grandchild-scope">
+                            <p>Grandchild Scope (Green Theme)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="interactive-demo">
+            <h2>Interactive Variable Demo</h2>
+            <div class="controls">
+                <label>
+                    Primary Color:
+                    <input type="color" id="primary-color" value="#3498db" onchange="updateVariable('--demo-primary', this.value)">
+                </label>
+                <label>
+                    Secondary Color:
+                    <input type="color" id="secondary-color" value="#2ecc71" onchange="updateVariable('--demo-secondary', this.value)">
+                </label>
+                <label>
+                    Font Size:
+                    <input type="range" id="font-size" min="12" max="24" value="16" onchange="updateVariable('--demo-font-size', this.value + 'px')">
+                    <span id="font-size-value">16px</span>
+                </label>
+                <label>
+                    Border Radius:
+                    <input type="range" id="border-radius" min="0" max="50" value="8" onchange="updateVariable('--demo-border-radius', this.value + 'px')">
+                    <span id="border-radius-value">8px</span>
+                </label>
+            </div>
+            
+            <div class="demo-area">
+                <div class="demo-card">
+                    <h3>Interactive Card</h3>
+                    <p>This card's appearance is controlled by CSS variables that you can modify using the controls above.</p>
+                    <button class="demo-button">Demo Button</button>
+                </div>
+            </div>
+        </section>
+        
+        <section class="practical-examples">
+            <h2>Practical Examples</h2>
+            
+            <div class="component-library">
+                <h3>Button Component System</h3>
+                <div class="button-showcase">
+                    <button class="btn btn-primary">Primary Button</button>
+                    <button class="btn btn-secondary">Secondary Button</button>
+                    <button class="btn btn-success">Success Button</button>
+                    <button class="btn btn-warning">Warning Button</button>
+                    <button class="btn btn-danger">Danger Button</button>
+                </div>
+            </div>
+            
+            <div class="card-system">
+                <h3>Card System with Variables</h3>
+                <div class="cards-grid">
+                    <div class="card card-elevated">
+                        <div class="card-header">
+                            <h4>Elevated Card</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>This card uses CSS variables for consistent spacing and styling.</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-primary btn-small">Action</button>
+                        </div>
+                    </div>
+                    
+                    <div class="card card-outlined">
+                        <div class="card-header">
+                            <h4>Outlined Card</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>Same structure, different appearance using variable overrides.</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-secondary btn-small">Action</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="responsive-variables">
+            <h2>Responsive Design with Variables</h2>
+            <div class="responsive-demo">
+                <div class="responsive-grid">
+                    <div class="grid-item">Item 1</div>
+                    <div class="grid-item">Item 2</div>
+                    <div class="grid-item">Item 3</div>
+                    <div class="grid-item">Item 4</div>
+                </div>
+                <p class="responsive-text">This layout uses CSS variables that change based on screen size.</p>
+            </div>
+        </section>
+    </div>
+    
+    <script src="css-variables.js"></script>
+</body>
+</html>

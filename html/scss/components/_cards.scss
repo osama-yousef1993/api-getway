@@ -1,0 +1,158 @@
+// components/_cards.scss
+// Card component with nested selectors
+
+.card {
+  background-color: $white;
+  @include border-radius($border-radius-lg);
+  @include card-shadow(1);
+  @include card-hover-effect;
+  overflow: hidden;
+  
+  // Card header - nested selector
+  &__header {
+    padding: $spacing-lg;
+    background-color: $primary-color;
+    color: $white;
+    @include flex-between;
+    
+    // Nested title
+    &__title {
+      margin: 0;
+      font-size: $font-size-large;
+      font-weight: $font-weight-bold;
+    }
+    
+    // Nested actions
+    &__actions {
+      @include flex-center;
+      gap: $spacing-sm;
+      
+      .btn {
+        &--small {
+          padding: $spacing-xs $spacing-sm;
+          font-size: $font-size-small;
+        }
+      }
+    }
+  }
+  
+  // Card title (direct child)
+  &__title {
+    color: $primary-color;
+    margin-bottom: $spacing-md;
+  }
+  
+  // Card body
+  &__body {
+    padding: $spacing-lg;
+    
+    p {
+      color: $gray;
+      line-height: $line-height-loose;
+      margin-bottom: $spacing-md;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  
+  // Card list - demonstrates deeper nesting
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: $spacing-md 0;
+    
+    &-item {
+      @include flex-center;
+      justify-content: flex-start;
+      padding: $spacing-sm 0;
+      border-bottom: 1px solid lighten($gray, 30%);
+      transition: $transition-fast;
+      
+      // Icon within list item
+      &-icon {
+        color: $success-color;
+        font-weight: $font-weight-bold;
+        margin-right: $spacing-sm;
+        @include flex-center;
+        width: 20px;
+        height: 20px;
+        background-color: lighten($success-color, 40%);
+        border-radius: 50%;
+        font-size: $font-size-small;
+      }
+      
+      // Hover state for list items
+      &:hover {
+        background-color: $light-gray;
+        padding-left: $spacing-sm;
+        
+        // Nested hover effect on icon
+        .card__list-item-icon {
+          background-color: $success-color;
+          color: $white;
+          transform: scale(1.1);
+        }
+      }
+      
+      // Last item styling
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+  
+  // Card footer
+  &__footer {
+    padding: $spacing-lg;
+    background-color: $light-gray;
+    text-align: center;
+    
+    // Links in footer
+    .card__link {
+      color: $primary-color;
+      font-weight: $font-weight-medium;
+      text-decoration: none;
+      transition: $transition-fast;
+      
+      &:hover {
+        color: darken($primary-color, 15%);
+        
+        // Pseudo-element for arrow animation
+        &::after {
+          content: " →";
+          display: inline-block;
+          transition: $transition-fast;
+          transform: translateX(5px);
+        }
+      }
+    }
+  }
+  
+  // Card states using parent selector
+  &:hover {
+    // When card is hovered, change header background
+    .card__header {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+  
+  // Card variations
+  &--featured {
+    border: 2px solid $accent-color;
+    
+    .card__header {
+      background: linear-gradient(135deg, $accent-color, darken($accent-color, 15%));
+    }
+  }
+  
+  &--minimal {
+    @include card-shadow(0);
+    border: 1px solid lighten($gray, 25%);
+    
+    &:hover {
+      @include card-shadow(2);
+    }
+  }
+}

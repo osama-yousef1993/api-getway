@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animations Example</title>
+    <link rel="stylesheet" href="animations.css">
+</head>
+<body>
+    <div class="container">
+        <h1>CSS Animations with @keyframes</h1>
+        
+        <section>
+            <h2>Basic Animation Properties</h2>
+            <div class="animation-grid">
+                <div class="animation-box slide-in">
+                    <h3>slideIn Animation</h3>
+                    <p>animation-name: slideIn</p>
+                    <p>animation-duration: 2s</p>
+                </div>
+                
+                <div class="animation-box rotate-box">
+                    <h3>Rotate Animation</h3>
+                    <p>Infinite rotation with timing function</p>
+                </div>
+                
+                <div class="animation-box bounce-box">
+                    <h3>Bounce Animation</h3>
+                    <p>Custom easing with iteration count</p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Complex Animations</h2>
+            <div class="complex-animations">
+                <div class="floating-card">
+                    <h3>Floating Card</h3>
+                    <p>Combines multiple animation effects</p>
+                    <div class="card-icon">🚀</div>
+                </div>
+                
+                <div class="pulse-circle"></div>
+                
+                <div class="loading-dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Interactive Animations</h2>
+            <div class="interactive-section">
+                <button class="play-btn" onclick="restartAnimation('typewriter')">Restart Typewriter</button>
+                <div class="typewriter" id="typewriter">
+                    <h2>CSS Animations are awesome!</h2>
+                </div>
+                
+                <button class="play-btn" onclick="restartAnimation('morphing-shape')">Restart Morphing</button>
+                <div class="morphing-shape" id="morphing-shape"></div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Performance Showcase</h2>
+            <div class="showcase">
+                <div class="animated-background">
+                    <div class="floating-shape shape-1"></div>
+                    <div class="floating-shape shape-2"></div>
+                    <div class="floating-shape shape-3"></div>
+                    <div class="floating-shape shape-4"></div>
+                </div>
+                <div class="showcase-content">
+                    <h3>Animated Background</h3>
+                    <p>Multiple shapes with different animation timings</p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Animation Controls</h2>
+            <div class="controls-demo">
+                <div class="controllable-box" id="controllable">
+                    <p>Controllable Animation</p>
+                </div>
+                <div class="controls">
+                    <button onclick="playAnimation()">Play</button>
+                    <button onclick="pauseAnimation()">Pause</button>
+                    <button onclick="reverseAnimation()">Reverse</button>
+                    <button onclick="resetAnimation()">Reset</button>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <script src="animations.js"></script>
+</body>
+</html>

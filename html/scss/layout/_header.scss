@@ -1,0 +1,48 @@
+// layout/_header.scss
+// Header layout styles
+
+.header {
+  background-color: $white;
+  @include card-shadow(1);
+  position: sticky;
+  top: 0;
+  z-index: $z-sticky;
+  
+  .container {
+    @include flex-between;
+    padding: $spacing-lg;
+    
+    @include respond-to(mobile) {
+      flex-direction: column;
+      gap: $spacing-md;
+      text-align: center;
+    }
+  }
+  
+  // Header brand section
+  &__brand {
+    @include flex-column;
+    align-items: flex-start;
+    
+    @include respond-to(mobile) {
+      align-items: center;
+    }
+    
+    h1 {
+      @include text-gradient($primary-color, $accent-color);
+      margin-bottom: $spacing-xs;
+      font-size: $font-size-2xl;
+      
+      @include respond-to(mobile) {
+        font-size: $font-size-xl;
+      }
+    }
+    
+    p {
+      color: $gray;
+      font-size: $font-size-small;
+      margin: 0;
+      font-style: italic;
+    }
+  }
+}

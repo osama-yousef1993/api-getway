@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Variables Theming Demo</title>
+    <link rel="stylesheet" href="theming-demo.css">
+</head>
+<body>
+    <!-- Theme Switcher -->
+    <div class="theme-switcher">
+        <div class="theme-switcher__title">Choose Theme</div>
+        <div class="theme-options">
+            <label class="theme-option theme-option--light">
+                <input type="radio" name="theme" value="light" checked>
+                <span class="theme-option__label">Light</span>
+                <div class="theme-option__preview"></div>
+            </label>
+            
+            <label class="theme-option theme-option--dark">
+                <input type="radio" name="theme" value="dark">
+                <span class="theme-option__label">Dark</span>
+                <div class="theme-option__preview"></div>
+            </label>
+            
+            <label class="theme-option theme-option--purple">
+                <input type="radio" name="theme" value="purple">
+                <span class="theme-option__label">Purple</span>
+                <div class="theme-option__preview"></div>
+            </label>
+            
+            <label class="theme-option theme-option--green">
+                <input type="radio" name="theme" value="green">
+                <span class="theme-option__label">Green</span>
+                <div class="theme-option__preview"></div>
+            </label>
+            
+            <label class="theme-option theme-option--orange">
+                <input type="radio" name="theme" value="orange">
+                <span class="theme-option__label">Orange</span>
+                <div class="theme-option__preview"></div>
+            </label>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="header__title">CSS Variables Theming System</h1>
+            <p class="header__subtitle">Demonstrating dynamic theming with CSS Custom Properties</p>
+            
+            <nav class="nav">
+                <a href="#" class="nav__link nav__link--active">Dashboard</a>
+                <a href="#" class="nav__link">Components</a>
+                <a href="#" class="nav__link">Settings</a>
+                <a href="#" class="nav__link">Help</a>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Status Indicators -->
+            <section style="margin: 2rem 0;">
+                <h2>Status Indicators</h2>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+                    <span class="status status--success">
+                        ✓ Success Status
+                    </span>
+                    <span class="status status--warning">
+                        ⚠ Warning Status
+                    </span>
+                    <span class="status status--danger">
+                        ✗ Error Status
+                    </span>
+                    <span class="status status--info">
+                        ℹ Info Status
+                    </span>
+                </div>
+            </section>
+
+            <!-- Alerts -->
+            <section style="margin: 2rem 0;">
+                <h2>Alert Components</h2>
+                <div class="alert alert--success">
+                    <strong>Success!</strong> Your changes have been saved successfully.
+                </div>
+                <div class="alert alert--warning">
+                    <strong>Warning!</strong> Please review your input before proceeding.
+                </div>
+                <div class="alert alert--danger">
+                    <strong>Error!</strong> Something went wrong. Please try again.
+                </div>
+                <div class="alert alert--info">
+                    <strong>Info!</strong> Here's some helpful information for you.
+                </div>
+            </section>
+
+            <!-- Button System -->
+            <section style="margin: 2rem 0;">
+                <h2>Button System</h2>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+                    <button class="btn btn--primary">Primary Button</button>
+                    <button class="btn btn--secondary">Secondary Button</button>
+                    <button class="btn btn--outline">Outline Button</button>
+                    <button class="btn btn--success">Success Button</button>
+                    <button class="btn btn--warning">Warning Button</button>
+                    <button class="btn btn--danger">Danger Button</button>
+                </div>
+            </section>
+
+            <!-- Form Example -->
+            <section style="margin: 2rem 0;">
+                <h2>Form Elements</h2>
+                <form style="max-width: 400px;">
+                    <div class="form-group">
+                        <label class="form-label" for="name">Full Name</label>
+                        <input type="text" id="name" class="form-input" placeholder="Enter your full name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address</label>
+                        <input type="email" id="email" class="form-input" placeholder="Enter your email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="message">Message</label>
+                        <textarea id="message" class="form-input" rows="4" placeholder="Enter your message"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn--primary">Submit Form</button>
+                </form>
+            </section>
+
+            <!-- Card Grid -->
+            <section>
+                <h2>Component Cards</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3 class="card__title">Dashboard Analytics</h3>
+                            <p class="card__subtitle">Real-time performance metrics</p>
+                        </div>
+                        <div class="card__body">
+                            <p class="card__text">
+                                This card demonstrates how theming variables cascade through complex components.
+                                All colors, shadows, and borders adapt automatically.
+                            </p>
+                            <p class="card__meta">Last updated: 2 minutes ago</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__header">
+                            <h3 class="card__title">User Management</h3>
+                            <p class="card__subtitle">Manage team members and permissions</p>
+                        </div>
+                        <div class="card__body">
+                            <p class="card__text">
+                                The theming system ensures consistent visual hierarchy across all interface elements.
+                                Switch themes to see the seamless transitions.
+                            </p>
+                            <p class="card__meta">24 active users</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__header">
+                            <h3 class="card__title">Settings Panel</h3>
+                            <p class="card__subtitle">Configure application preferences</p>
+                        </div>
+                        <div class="card__body">
+                            <p class="card__text">
+                                CSS Variables enable runtime theme switching without page reloads.
+                                Perfect for user preference systems and accessibility features.
+                            </p>
+                            <p class="card__meta">Configuration saved</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__header">
+                            <h3 class="card__title">API Integration</h3>
+                            <p class="card__subtitle">Connect with external services</p>
+                        </div>
+                        <div class="card__body">
+                            <p class="card__text">
+                                The modular approach allows themes to be easily extended with new color schemes
+                                or completely different visual styles.
+                            </p>
+                            <p class="card__meta">3 connections active</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Theme Explanation -->
+            <section style="margin: 4rem 0 2rem 0;">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">How This Theming Works</h3>
+                        <p class="card__subtitle">Technical implementation details</p>
+                    </div>
+                    <div class="card__body">
+                        <h4 style="margin-bottom: 1rem; color: var(--theme-text-primary);">1. Variable Declaration</h4>
+                        <p class="card__text">
+                            Themes are defined using CSS custom properties in the <code>:root</code> selector for global scope,
+                            and overridden using attribute selectors like <code>[data-theme="dark"]</code>.
+                        </p>
+
+                        <h4 style="margin: 2rem 0 1rem 0; color: var(--theme-text-primary);">2. Component Integration</h4>
+                        <p class="card__text">
+                            All components use theme variables instead of hardcoded colors:
+                            <code>background-color: var(--theme-bg-primary)</code>
+                        </p>
+
+                        <h4 style="margin: 2rem 0 1rem 0; color: var(--theme-text-primary);">3. JavaScript Control</h4>
+                        <p class="card__text">
+                            Theme switching is controlled by changing the <code>data-theme</code> attribute on the HTML element,
+                            which automatically cascades new variable values throughout the entire page.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Theme switching functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeInputs = document.querySelectorAll('input[name="theme"]');
+            const html = document.documentElement;
+            
+            // Load saved theme
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', savedTheme);
+            
+            // Update radio button
+            const savedThemeInput = document.querySelector(`input[value="${savedTheme}"]`);
+            if (savedThemeInput) {
+                savedThemeInput.checked = true;
+            }
+            
+            // Theme change handler
+            themeInputs.forEach(input => {
+                input.addEventListener('change', function() {
+                    if (this.checked) {
+                        const theme = this.value;
+                        html.setAttribute('data-theme', theme);
+                        localStorage.setItem('theme', theme);
+                        
+                        // Optional: Dispatch custom event for other components
+                        const themeChangeEvent = new CustomEvent('themechange', {
+                            detail: { theme: theme }
+                        });
+                        document.dispatchEvent(themeChangeEvent);
+                    }
+                });
+            });
+        });
+
+        // Listen for theme changes (example of how other parts of your app could react)
+        document.addEventListener('themechange', function(e) {
+            console.log('Theme changed to:', e.detail.theme);
+            
+            // Example: Update charts, maps, or other complex components
+            // updateChartTheme(e.detail.theme);
+            // updateMapTheme(e.detail.theme);
+        });
+
+        // Keyboard shortcut for theme switching (Ctrl/Cmd + Shift + T)
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'T') {
+                e.preventDefault();
+                const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+                const themes = ['light', 'dark', 'purple', 'green', 'orange'];
+                const currentIndex = themes.indexOf(currentTheme);
+                const nextIndex = (currentIndex + 1) % themes.length;
+                const nextTheme = themes[nextIndex];
+                
+                document.documentElement.setAttribute('data-theme', nextTheme);
+                localStorage.setItem('theme', nextTheme);
+                
+                // Update radio button
+                const themeInput = document.querySelector(`input[value="${nextTheme}"]`);
+                if (themeInput) {
+                    themeInput.checked = true;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
